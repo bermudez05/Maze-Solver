@@ -15,6 +15,7 @@ class Vecino(object):
     def close(self,num):
         gl.matrix[self.post[0]][self.post[1]]=num     
 
+@gl.mide_tiempo
 def Costo_uniforme():
         global prioridad
         #SEEK AROUND (ACCIONES POSIBLES ) Y PONERLA EN COLA DE PRIORIDAD DE MENOR DISTANCIA

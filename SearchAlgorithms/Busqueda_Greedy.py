@@ -1,5 +1,7 @@
 from sortedcontainers import SortedList
 from . import globals as gl
+from memory_profiler import profile
+
 prioridad = 0
 class Vecino(object):
     def __init__(self,post,parent):
@@ -16,13 +18,16 @@ class Vecino(object):
         return self.dgoal  
     def close(self,num):
         gl.matrix[self.post[0]][self.post[1]]=num 
+    
+#@profile
+@gl.mide_tiempo
 def Greedy():
         print("greedy bitches")
         global prioridad
         #SEEK AROUND (ACCIONES POSIBLES ) Y PONERLA EN COLA DE PRIORIDAD DE MENOR DISTANCIA
         agent = Vecino(gl.agent_pos,None)
         prioridad = SortedList([agent])
-        current =""
+        current = ""
         while prioridad.__len__()!=0:
                 current = prioridad.pop()
                 if current.post == list(gl.goal_pos):
@@ -34,6 +39,7 @@ def Greedy():
         #MOVERSE A DONDE CUESTE MENOS
         #REPETIR
         return
+
 def SeekAround(current):
         post=current.post
         accions = [[0,1],[1,0],[-1,0],[0,-1]]

@@ -11,8 +11,6 @@ import SearchAlgorithms.Busqueda_Greedy as Greedy
 import SearchAlgorithms.Costo_uniforme as C_U
 import SearchAlgorithms.Profundidad as Profundidad
 import SearchAlgorithms.Profundidad_iterativa as P_I
-# Funciones a incluir en cada archivo de algoritmo
-# para ek coloreado de la solucion
 
 maze = ""
 widthScreen = 0
@@ -87,8 +85,8 @@ def MazeSolverBoard():
              P_I._profundidad(gl.agent_pos,gl.goal_pos,gl.matrix,gl.canvas)
         elif opcion == "Costo uniforme":
              C_U.Costo_uniforme()
-        elif opcion == "Busqueda Greedy":
-             Greedy.Greedy()
+        elif opcion == "Búsqueda Greedy":
+            Greedy.Greedy()
         elif opcion == "Algoritmo A*":
              Astar.Astar()
         # Create Dropdown menu

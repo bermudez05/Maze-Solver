@@ -23,8 +23,8 @@ class Vecino(object):
     def close(self,num):
         gl.matrix[self.post[0]][self.post[1]]=num
 
-#@gl.mide_tiempo
-@profile
+@gl.mide_tiempo
+#@profile
 def Astar():
     Profile()
     global open

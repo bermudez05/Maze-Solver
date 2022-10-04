@@ -2,6 +2,7 @@ import time
 global agent_pos 
 global matrix
 global goal_pos 
+
 goal_pos =()
 agent_pos =(0, 1)
 matrix = []
