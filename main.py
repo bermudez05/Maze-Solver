@@ -32,19 +32,18 @@ def _lectura_maze():
     # importamos el laberinto en formato csv
     mazeReader = csv.reader(open(maze))
 
-    matrix = []
     # hacemos la lectura del laberinto linea por linea
     for row in mazeReader:
         if row != []:
             row = [0 if x == 'w' else 1 for x in row]
-            matrix.append(row)
+            gl.matrix.append(row)
 
     # identificamos la posicion inicial y la final
-    gl.agent_pos = (0, matrix[0].index(1))
-    gl.goal_pos = (len(matrix) - 1, matrix[len(matrix) - 1].index(1))
+    gl.agent_pos = (0, gl.matrix[0].index(1))
+    gl.goal_pos = (len(gl.matrix) - 1, gl.matrix[len(gl.matrix) - 1].index(1))
 
-    matrix = np.array(matrix) 
-    return matrix
+    gl.matrix = np.array(gl.matrix) 
+    return gl.matrix
 
 def MazeSolverBoard():
     root = tk.Tk()
@@ -143,7 +142,7 @@ class Menu(tk.Tk):
             #nos da el directorio completo del archivo
             archivo = filedialog.askopenfilename(title="Seleccione laberinto")
             maze=archivo
-            self.destroy()
+            _lectura_maze()
             MazeSolverBoard()
 
         load = tk.Button(master=loadMaze,
